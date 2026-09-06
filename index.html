@@ -435,6 +435,10 @@
   body.generating-pdf .hero-badge{ width:180px; height:180px; margin-bottom:28px; }
   body.generating-pdf .hero h1{ font-size:5rem; }
   body.generating-pdf .hero p{ max-width:520px; }
+  body.generating-pdf .how-it-works{
+    min-height:1600px;
+    box-sizing:border-box;
+  }
   body.generating-pdf .menu-section{ padding-top:48px; }
   body.generating-pdf .section-head{ margin-bottom:28px; }
   body.generating-pdf .section-head h2{ font-size:2.35rem; }
@@ -445,6 +449,11 @@
   body.generating-pdf .dish-desc{ font-size:0.86rem; }
   body.generating-pdf .location-info{ padding:26px; }
   body.generating-pdf .location-wrap{ display:block; }
+  body.generating-pdf .how-it-works{
+    background:var(--cream) !important;
+  }
+  body.generating-pdf .how-it-works::before,
+  body.generating-pdf .how-it-works::after{ display:none !important; }
 
   /* estos elementos se muestran vía animación (opacity 0 -> 1); al
      desactivar animaciones para el PDF hay que forzar que queden visibles,
@@ -537,6 +546,44 @@
   }
   .showcase-photo img{width:100%; height:100%; object-fit:cover; display:block;}
 
+  /* ---------- cómo funciona ---------- */
+  .how-it-works{
+    position:relative; min-height:100vh; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    padding:72px 28px; color:var(--ink);
+    background:
+      radial-gradient(ellipse at 12% 18%, rgba(255,255,255,0.35), transparent 24%),
+      radial-gradient(ellipse at 88% 78%, rgba(220,185,104,0.14), transparent 28%),
+      repeating-linear-gradient(125deg, rgba(43,28,16,0.025) 0 1px, transparent 1px 24px),
+      var(--cream);
+  }
+  .how-it-works::before,
+  .how-it-works::after{
+    content:""; position:absolute; pointer-events:none;
+    width:150px; height:100%; top:0; opacity:.42;
+    background:linear-gradient(90deg, rgba(187,138,46,.16), transparent);
+  }
+  .how-it-works::before{left:0; transform:skewY(-8deg) translateX(-42px);}
+  .how-it-works::after{right:0; transform:skewY(8deg) translateX(42px); opacity:.18;}
+  .how-it-works-inner{
+    position:relative; z-index:1; width:min(100%, 590px); text-align:center;
+    padding:16px 24px;
+  }
+  .how-it-works h2,
+  .how-it-works h3{
+    color:var(--wine-deep); font-size:clamp(1.3rem, 3vw, 1.72rem);
+    letter-spacing:.04em; text-transform:uppercase;
+  }
+  .how-it-works h2{margin-bottom:14px;}
+  .how-it-works h3{margin:42px 0 14px;}
+  .how-it-works p{
+    color:var(--ink-soft); font-size:clamp(.9rem, 2vw, 1.02rem); line-height:1.6;
+    margin:0 auto 14px; max-width:520px;
+  }
+  .how-it-works .intro,
+  .how-it-works .closing{color:var(--sage-deep); font-style:italic;}
+  .how-it-works .closing{margin-top:24px;}
+
   @media (max-width:760px){
     .mini-grid{grid-template-columns:1fr;}
     .showcase-photo{aspect-ratio:4/3;}
@@ -544,6 +591,10 @@
   @media (max-width:600px){
     .dish-top{flex-wrap:wrap; row-gap:6px;}
     .dish-prices{margin-left:0;}
+  }
+  @media (max-width:480px){
+    .how-it-works{padding:56px 20px;}
+    .how-it-works-inner{padding:12px 8px;}
   }
 </style>
 </head>
@@ -622,6 +673,18 @@
     <img src="assets/foto-menu.jpg" alt="El Lomito bodegón" loading="lazy" onerror="this.closest('.showcase').style.display='none'">
   </div>
 </div>
+
+<section class="how-it-works" id="como-funciona">
+  <div class="how-it-works-inner">
+    <h2>Cómo se come en El Lomito</h2>
+    <p class="intro">En el Lomito se viene a comer bien. Abundantemente, y en cantidad. Por eso, según el día, podés elegir cómo disfrutar el bodegón.</p>
+
+    <h3>¿Cómo funciona?</h3>
+    <p>La comida por peso y el tenedor libre son autoservicio: le servís lo que quieras, a tu ritmo.</p>
+    <p>Para bebidas, platos a la carta, postres y la cuenta, solo tenés que pedirle a nuestro equipo de salón.</p>
+    <p class="closing">Comer bien, libremente y sin apuro. Como tiene que ser un bodegón.</p>
+  </div>
+</section>
 
 <main>
 
@@ -1658,39 +1721,30 @@
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
     if (document.fonts && document.fonts.ready){ try { await document.fonts.ready; } catch(e){} }
 
+    const scrollPosition = window.scrollY;
+    window.scrollTo(0, 0);
+
     try {
       const MARGIN_X = 6, MARGIN_TOP = 6, MARGIN_BOTTOM = 10;
 
       const FIXED_WIDTH = 1100;
       const bodyHeightCss = document.body.scrollHeight;
-
-      // una sola captura de toda la página, a un ancho fijo (ver CSS
-      // body.generating-pdf), así el resultado es siempre igual sin
-      // importar el tamaño de pantalla de quien lo genera
-      const canvas = await html2canvas(document.body, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#f7e7ae',
-        windowWidth: FIXED_WIDTH,
-        windowHeight: bodyHeightCss,
-        width: FIXED_WIDTH,
-        height: bodyHeightCss,
-        x: 0,
-        y: 0,
-        ignoreElements: (element) => element.closest('.navbar') !== null
-      });
-
       const bodyWidthCss = FIXED_WIDTH;
-      const pxScale = canvas.width / bodyWidthCss;
 
-      const toCanvasY = (el) => (el.getBoundingClientRect().top + window.scrollY) * pxScale;
-      const portadaBreak = toCanvasY(document.querySelector('#entradas'));
+      const toDocumentY = (el) => el.getBoundingClientRect().top;
+      const comoFunciona = document.querySelector('#como-funciona');
+      const entradas = document.querySelector('#entradas');
+      const hardBreaks = [
+        toDocumentY(comoFunciona),
+        comoFunciona.getBoundingClientRect().bottom,
+        toDocumentY(entradas)
+      ].sort((a, b) => a - b);
 
       // bloques que nunca deben cortarse al medio (un plato, una fila, etc.)
       const avoidRanges = Array.from(document.querySelectorAll('.dish, .mini-item, .choice-list'))
         .map(el => {
           const r = el.getBoundingClientRect();
-          return [(r.top + window.scrollY) * pxScale, (r.bottom + window.scrollY) * pxScale];
+          return [r.top, r.bottom];
         })
         .sort((a, b) => a[0] - b[0]);
 
@@ -1702,8 +1756,8 @@
         const headingBox = heading.getBoundingClientRect();
         const contentBox = firstContent.getBoundingClientRect();
         avoidRanges.push([
-          (headingBox.top + window.scrollY) * pxScale,
-          (contentBox.bottom + window.scrollY) * pxScale
+          headingBox.top,
+          contentBox.bottom
         ]);
       });
       avoidRanges.sort((a, b) => a[0] - b[0]);
@@ -1721,31 +1775,57 @@
       const pageHmm = pdf.internal.pageSize.getHeight();
       const usableWmm = pageWmm - MARGIN_X * 2;
       const usableHmm = pageHmm - MARGIN_TOP - MARGIN_BOTTOM;
-      const pxPerMm = canvas.width / usableWmm;
-      const pageHeightPx = usableHmm * pxPerMm;
+      const cssPerMm = bodyWidthCss / usableWmm;
+      const pageHeightCss = usableHmm * cssPerMm;
 
       let y = 0;
       let first = true;
-      const totalH = canvas.height;
+      const totalH = bodyHeightCss;
 
       while (y < totalH - 1){
-        let end = Math.min(y + pageHeightPx, totalH);
+        let end = Math.min(y + pageHeightCss, totalH);
 
-        const terminaPortada = y < 1 && portadaBreak > 1 && portadaBreak < end;
-        end = terminaPortada ? portadaBreak : ajustarCorte(end);
-        if (end <= y) end = Math.min(y + pageHeightPx, totalH);
+        const hardBreak = hardBreaks.find(breakPoint => breakPoint > y + 1 && breakPoint < end);
+        end = hardBreak || ajustarCorte(end);
+        if (end <= y) end = Math.min(y + pageHeightCss, totalH);
 
-        const sliceH = end - y;
-        const pageCanvas = document.createElement('canvas');
-        pageCanvas.width = canvas.width;
-        pageCanvas.height = sliceH;
-        pageCanvas.getContext('2d').drawImage(canvas, 0, y, canvas.width, sliceH, 0, 0, canvas.width, sliceH);
+        // Capturamos cada página por separado para no superar el límite de
+        // altura máxima de un canvas cuando la carta es muy larga.
+        const pageCanvas = await html2canvas(document.body, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#f7e7ae',
+          windowWidth: FIXED_WIDTH,
+          windowHeight: end - y,
+          width: FIXED_WIDTH,
+          height: end - y,
+          x: 0,
+          y,
+          scrollY: 0,
+          ignoreElements: (element) => element.closest('.navbar') !== null
+        });
 
-        if (!first) pdf.addPage();
-        first = false;
-        pdf.setFillColor(247, 231, 174);
-        pdf.rect(0, 0, pageWmm, pageHmm, 'F');
-        pdf.addImage(pageCanvas.toDataURL('image/png'), 'PNG', MARGIN_X, MARGIN_TOP, usableWmm, sliceH / pxPerMm);
+        // No agregamos páginas que solo contienen el fondo de la carta.
+        // Pueden aparecer cuando un corte cae justo entre dos secciones.
+        const pixels = pageCanvas.getContext('2d').getImageData(0, 0, pageCanvas.width, pageCanvas.height).data;
+        let hasContent = false;
+        for (let index = 0; index < pixels.length; index += 64) {
+          const colorDifference = Math.abs(pixels[index] - 247)
+            + Math.abs(pixels[index + 1] - 231)
+            + Math.abs(pixels[index + 2] - 174);
+          if (colorDifference > 18) {
+            hasContent = true;
+            break;
+          }
+        }
+
+        if (hasContent) {
+          if (!first) pdf.addPage();
+          first = false;
+          pdf.setFillColor(247, 231, 174);
+          pdf.rect(0, 0, pageWmm, pageHmm, 'F');
+          pdf.addImage(pageCanvas.toDataURL('image/png'), 'PNG', MARGIN_X, MARGIN_TOP, usableWmm, (end - y) / cssPerMm);
+        }
 
         y = end;
       }
@@ -1755,6 +1835,7 @@
       console.error(e);
       alert('No se pudo generar el PDF. Probá de nuevo.');
     } finally {
+      window.scrollTo(0, scrollPosition);
       document.body.classList.remove('generating-pdf');
       btn.disabled = false;
       btn.innerHTML = textoOriginal;
