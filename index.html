@@ -133,11 +133,11 @@
   .nav-brand{
     font-family:'Fraunces', serif; font-weight:700; font-style:italic;
     color:var(--wine); font-size:1.15rem; white-space:nowrap; margin-right:8px;
-    display:flex; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:8px; flex-shrink:0;
   }
   .nav-brand img{width:30px; height:30px; border-radius:50%; display:block;}
   .nav-links{
-    display:flex; gap:6px; flex-wrap:nowrap;
+    display:flex; gap:6px; flex-wrap:nowrap; flex-shrink:0;
     padding-right:190px;
   }
   .nav-link{
@@ -316,7 +316,7 @@
     .dish-grid{grid-template-columns:1fr;}
     footer .container{grid-template-columns:1fr; gap:34px;}
     .nav-links{padding-right:0;}
-    .print-btn{display:none;}
+    .location-info{padding:28px;}
   }
 
   @media (max-width:600px){
@@ -324,6 +324,7 @@
     .dish-name{white-space:normal; flex:1 1 100%; line-height:1.25;}
     .dish-leader{display:none;}
     .dish-price{margin-left:auto;}
+    .dish-prices{flex-wrap:wrap; gap:6px 12px;}
   }
 
   @media (max-width:480px){
@@ -337,6 +338,22 @@
     .info-item span{font-size:0.86rem;}
     .section-head{margin-bottom:32px;}
     footer{padding:54px 0 26px;}
+  }
+
+  @media (max-width:360px){
+    .container{padding:0 16px;}
+    .nav-inner{padding:10px 16px; gap:12px;}
+    .nav-brand{font-size:0.98rem; margin-right:2px;}
+    .nav-brand img{width:26px; height:26px;}
+    .nav-link{padding:8px 11px; font-size:0.8rem;}
+    .hero{padding:48px 16px 56px;}
+    .hero-badge{width:104px; height:104px;}
+    .hero-eyebrow-wrap{gap:8px;}
+    .hero-flourish{width:40px;}
+    .hero-eyebrow{font-size:0.94rem;}
+    .info-strip{gap:8px 12px;}
+    .info-item span{font-size:0.8rem;}
+    .location-info{padding:22px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -359,6 +376,11 @@
   .print-btn:hover{background:var(--sage); transform:translateY(-1px);}
   .print-btn:disabled{opacity:0.7; cursor:wait;}
   .print-btn svg{width:16px; height:16px;}
+
+  @media (max-width:1040px){
+    .nav-links{padding-right:0;}
+    .print-btn{display:none !important;}
+  }
 
   /* ==================================================== */
   /* ------- versión usada al generar el PDF a color ----- */
