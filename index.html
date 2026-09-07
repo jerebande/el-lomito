@@ -81,7 +81,7 @@
 
   *{box-sizing:border-box; margin:0; padding:0;}
 
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; font-size:17px;}
 
   body{
     background:
@@ -421,9 +421,10 @@
   }
 
   body.generating-pdf .hero{
-    min-height:1300px; box-sizing:border-box;
+    min-height:1561px;
+    box-sizing:border-box;
     display:flex; flex-direction:column; justify-content:center; align-items:center;
-    padding:80px 90px;
+    padding:80px 90px 72px;
   }
   body.generating-pdf .hero::before,
   body.generating-pdf .hero::after{
@@ -436,17 +437,21 @@
   body.generating-pdf .hero h1{ font-size:5rem; }
   body.generating-pdf .hero p{ max-width:520px; }
   body.generating-pdf .how-it-works{
-    min-height:1600px;
+    min-height:1561px;
     box-sizing:border-box;
+    padding:46px 90px;
+    text-align:center;
   }
   body.generating-pdf .menu-section{ padding-top:48px; }
   body.generating-pdf .section-head{ margin-bottom:28px; }
-  body.generating-pdf .section-head h2{ font-size:2.35rem; }
+  body.generating-pdf .section-head h2{ font-size:2.45rem; }
   body.generating-pdf .dish-grid{ column-gap:40px; padding-bottom:38px; }
   body.generating-pdf .dish{ padding:13px 0; }
-  body.generating-pdf .dish-name{ font-size:1rem; }
-  body.generating-pdf .dish-price{ font-size:0.98rem; }
-  body.generating-pdf .dish-desc{ font-size:0.86rem; }
+  body.generating-pdf .dish-name{ font-size:1.06rem; }
+  body.generating-pdf .dish-price{ font-size:1.04rem; }
+  body.generating-pdf .dish-desc{ font-size:0.92rem; }
+  body.generating-pdf .how-it-works-inner{ margin:0 auto; text-align:center; }
+  body.generating-pdf .how-it-works h3{ margin-top:28px; }
   body.generating-pdf .location-info{ padding:26px; }
   body.generating-pdf .location-wrap{ display:block; }
   body.generating-pdf .how-it-works{
@@ -677,7 +682,7 @@
 <section class="how-it-works" id="como-funciona">
   <div class="how-it-works-inner">
     <h2>Cómo se come en El Lomito</h2>
-    <p class="intro">En el Lomito se viene a comer bien. Abundantemente, y en cantidad. Por eso, según el día, podés elegir cómo disfrutar el bodegón.</p>
+    <p class="intro">En el Lomito se viene a comer bien. Abundante y en cantidad. Por eso, según el día, podés elegir cómo disfrutar el bodegón.</p>
 
     <h3>¿Cómo funciona?</h3>
     <p>La comida por peso y el tenedor libre son autoservicio: le servís lo que quieras, a tu ritmo.</p>
@@ -937,50 +942,14 @@
     <div class="dish-grid">
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Americana</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$60.000</span>
-              <span class="price-pair"><b>2/3p</b>$36.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa dorada y crocante, cubierta con muzza fundida, montaña de papas fritas, jamón crudo y huevo frito.</p>
+          <div class="dish-top"><span class="dish-name">Americana</span><span class="dish-leader"></span></div>
+          <p class="dish-desc">Milanesa dorada y crocante, cubierta con muzza fundida, papas fritas, jamón crudo y huevo frito. Elegí pollo: <b>5p $60.000 · 2/3p $36.000</b> o carne: <b>5p $64.000 · 2/3p $39.000</b>.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Americana de carne</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$64.000</span>
-              <span class="price-pair"><b>2/3p</b>$39.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa dorada y crocante, cubierta con muzza fundida, papas fritas, jamón crudo y huevo frito con yema bien jugosa.</p>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">De campo</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$61.000</span>
-              <span class="price-pair"><b>2/3p</b>$35.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa de pechuga de pollo con rúcula fresca, jamón crudo, muzza y reggianito.</p>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">De campo de carne</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$65.000</span>
-              <span class="price-pair"><b>2/3p</b>$37.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa de carne de ternera con rúcula fresca, jamón crudo, muzza y reggianito.</p>
+          <div class="dish-top"><span class="dish-name">De campo</span><span class="dish-leader"></span></div>
+          <p class="dish-desc">Milanesa con rúcula fresca, jamón crudo, muzza y reggianito. Elegí pollo: <b>5p $61.000 · 2/3p $35.000</b> o carne: <b>5p $65.000 · 2/3p $37.000</b>.</p>
         </div>
       </div>
       <div class="dish reveal">
@@ -992,79 +961,25 @@
               <span class="price-pair"><b>2/3p</b>$33.000</span>
             </span>
           </div>
-          <p class="dish-desc">Jamón, cheddar y montaña de papas.</p>
+          <p class="dish-desc">Jamón, cheddar y montaña de papas. Elegí pollo o carne.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Extrem</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$60.000</span>
-              <span class="price-pair"><b>2/3p</b>$35.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa crocante de pechuga de pollo, con panceta dorada, cheddar fundido y barbacoa.</p>
+          <div class="dish-top"><span class="dish-name">Extrem</span><span class="dish-leader"></span></div>
+          <p class="dish-desc">Milanesa crocante con panceta dorada, cheddar fundido y barbacoa. Elegí pollo: <b>5p $60.000 · 2/3p $35.000</b> o carne: <b>5p $65.000 · 2/3p $37.000</b>.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Extrem de carne</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$65.000</span>
-              <span class="price-pair"><b>2/3p</b>$37.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa crocante de carne de ternera, con panceta dorada, cheddar fundido y barbacoa.</p>
+          <div class="dish-top"><span class="dish-name">Full cheese</span><span class="dish-leader"></span></div>
+          <p class="dish-desc">Milanesa crocante con tybo, roquefort, muzza y cheddar, sobre base de cebolla salteada. Elegí pollo: <b>5p $61.000 · 2/3p $34.000</b> o carne: <b>5p $65.000 · 2/3p $36.000</b>.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Full cheese</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$61.000</span>
-              <span class="price-pair"><b>2/3p</b>$34.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa crocante de pechuga de pollo con tybo, roquefort, muzza y cheddar, sobre base de cebolla salteada.</p>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Full cheese de carne</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$65.000</span>
-              <span class="price-pair"><b>2/3p</b>$36.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa crocante de carne de ternera con tybo, roquefort, muzza y cheddar, sobre base de cebolla salteada.</p>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Napolitana</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$61.000</span>
-              <span class="price-pair"><b>2/3p</b>$36.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa dorada de pechuga de pollo, con salsa de tomate, jamón, muzza y papas fritas.</p>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top">
-            <span class="dish-name">Napo de carne</span><span class="dish-leader"></span>
-            <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$66.000</span>
-              <span class="price-pair"><b>2/3p</b>$37.000</span>
-            </span>
-          </div>
-          <p class="dish-desc">Milanesa dorada de carne de ternera, con salsa de tomate, jamón, muzza y papas fritas.</p>
+          <div class="dish-top"><span class="dish-name">Napolitana</span><span class="dish-leader"></span></div>
+          <p class="dish-desc">Milanesa dorada con salsa de tomate, jamón, muzza y papas fritas. Elegí pollo: <b>5p $61.000 · 2/3p $36.000</b> o carne: <b>5p $66.000 · 2/3p $37.000</b>.</p>
         </div>
       </div>
     </div>
@@ -1113,6 +1028,11 @@
         <div class="dish-body">
           <div class="dish-top"><span class="dish-name">Tenedor libre (mediodía)</span><span class="dish-leader"></span><span class="dish-price">$ 25.000</span></div>
           <p class="dish-desc">Mesa de entrada, comida fría y caliente.</p>
+        </div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish-body">
+          <div class="dish-top"><span class="dish-name">Comida por kilo</span><span class="dish-leader"></span><span class="dish-price">$ 30.000 / kg</span></div>
         </div>
       </div>
       <div class="dish reveal">
@@ -1558,32 +1478,28 @@
       <h2>Postres</h2>
       <svg class="divider" viewBox="0 0 150 22" fill="none"><path d="M2 11c14-14 28 14 42 0s28-14 42 0 28 14 42 0 14-14 20-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="75" cy="4" r="2.4" fill="currentColor"/></svg>
     </div>
+
+    <h3 class="subhead reveal">Postre por peso, a elección</h3>
     <div class="dish-grid">
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Flan Casero</span><span class="dish-leader"></span><span class="dish-price">$ 6.000</span></div>
+          <div class="dish-top"><span class="dish-name">Postre a elección</span><span class="dish-leader"></span><span class="dish-price">$ 40.000 / kg</span></div>
         </div>
       </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Cheesecake oreo</span><span class="dish-leader"></span><span class="dish-price">$ 7.000</span></div>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Cheesecake frutos rojos</span><span class="dish-leader"></span><span class="dish-price">$ 7.000</span></div>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Tricolor</span><span class="dish-leader"></span><span class="dish-price">$ 3.500</span></div>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Almendrado</span><span class="dish-leader"></span><span class="dish-price">$ 3.500</span></div>
-        </div>
-      </div>
+    </div>
+    <div class="choice-list reveal">
+      <span class="choice-item">Flan casero</span>
+      <span class="choice-item">Cheesecake oreo</span>
+      <span class="choice-item">Cheesecake frutos rojos</span>
+      <span class="choice-item">Tricolor</span>
+      <span class="choice-item">Almendrado</span>
+      <span class="choice-item">Duraznos con crema/DDL</span>
+      <span class="choice-item">Vigilante</span>
+      <span class="choice-item">Frutillas con crema</span>
+    </div>
+
+    <h3 class="subhead reveal">Postres helados</h3>
+    <div class="dish-grid">
       <div class="dish reveal">
         <div class="dish-body">
           <div class="dish-top"><span class="dish-name">Helado bombón suizo</span><span class="dish-leader"></span><span class="dish-price">$ 3.800</span></div>
@@ -1592,22 +1508,6 @@
       <div class="dish reveal">
         <div class="dish-body">
           <div class="dish-top"><span class="dish-name">Helado bombón escocés</span><span class="dish-leader"></span><span class="dish-price">$ 3.800</span></div>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Duraznos con crema/ddl</span><span class="dish-leader"></span><span class="dish-price">$ 6.500</span></div>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Vigilante</span><span class="dish-leader"></span><span class="dish-price">$ 4.500</span></div>
-          <p class="dish-desc">Dulce de batata y queso.</p>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Frutillas con crema</span><span class="dish-leader"></span><span class="dish-price">$ 6.500</span></div>
         </div>
       </div>
     </div>
@@ -1713,7 +1613,14 @@
     const textoOriginal = btn.innerHTML;
     btn.disabled = true;
     btn.innerHTML = 'Generando…';
+    navObserver.disconnect();
+    const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
     document.body.classList.add('generating-pdf');
+    const scrollPosition = window.scrollY;
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
 
     // esperamos a que el navegador aplique los estilos y las fuentes
     // terminen de cargar antes de medir/capturar (si no, la paginación
@@ -1721,22 +1628,17 @@
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
     if (document.fonts && document.fonts.ready){ try { await document.fonts.ready; } catch(e){} }
 
-    const scrollPosition = window.scrollY;
-    window.scrollTo(0, 0);
-
     try {
       const MARGIN_X = 6, MARGIN_TOP = 6, MARGIN_BOTTOM = 10;
 
       const FIXED_WIDTH = 1100;
       const bodyHeightCss = document.body.scrollHeight;
       const bodyWidthCss = FIXED_WIDTH;
-
       const toDocumentY = (el) => el.getBoundingClientRect().top;
       const comoFunciona = document.querySelector('#como-funciona');
       const entradas = document.querySelector('#entradas');
       const hardBreaks = [
         toDocumentY(comoFunciona),
-        comoFunciona.getBoundingClientRect().bottom,
         toDocumentY(entradas)
       ].sort((a, b) => a - b);
 
@@ -1781,6 +1683,7 @@
       let y = 0;
       let first = true;
       const totalH = bodyHeightCss;
+      const captureScale = 1;
 
       while (y < totalH - 1){
         let end = Math.min(y + pageHeightCss, totalH);
@@ -1789,10 +1692,8 @@
         end = hardBreak || ajustarCorte(end);
         if (end <= y) end = Math.min(y + pageHeightCss, totalH);
 
-        // Capturamos cada página por separado para no superar el límite de
-        // altura máxima de un canvas cuando la carta es muy larga.
         const pageCanvas = await html2canvas(document.body, {
-          scale: 2,
+          scale: captureScale,
           useCORS: true,
           backgroundColor: '#f7e7ae',
           windowWidth: FIXED_WIDTH,
@@ -1837,6 +1738,8 @@
     } finally {
       window.scrollTo(0, scrollPosition);
       document.body.classList.remove('generating-pdf');
+      document.documentElement.style.scrollBehavior = previousScrollBehavior;
+      sections.forEach(section => navObserver.observe(section));
       btn.disabled = false;
       btn.innerHTML = textoOriginal;
     }
