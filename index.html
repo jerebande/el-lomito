@@ -239,21 +239,21 @@
 
   /* ---------- dish list ---------- */
   .dish-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:8px 48px;
-    padding-bottom:56px;
+    display:grid; grid-template-columns:1fr; gap:0;
+    padding-bottom:24px;
   }
   .dish{
     display:flex; gap:14px; align-items:flex-start;
-    padding:18px 0; border-bottom:1px dashed rgba(43,28,16,0.18);
+    padding:10px 0; border-bottom:1px dashed rgba(43,28,16,0.18);
     transition:transform .3s ease;
   }
   .dish:hover{transform:translateX(3px);}
   .dish-body{flex:1; min-width:0;}
   .dish-top{display:flex; align-items:baseline; gap:8px;}
-  .dish-name{font-family:'Fraunces',serif; font-weight:600; font-size:1.08rem; color:var(--ink); white-space:nowrap;}
+  .dish-name{font-family:'Fraunces',serif; font-weight:600; font-size:1.32rem; color:var(--ink); white-space:nowrap;}
   .dish-leader{flex:1; border-bottom:1.5px dotted rgba(43,28,16,0.35); transform:translateY(-4px);}
-  .dish-price{font-family:'Fraunces',serif; font-weight:700; color:var(--wine); font-size:1.05rem; white-space:nowrap;}
-  .dish-desc{color:var(--ink-soft); font-size:0.92rem; margin-top:3px; line-height:1.45;}
+  .dish-price{font-family:'Fraunces',serif; font-weight:700; color:var(--wine); font-size:1.15rem; white-space:nowrap;}
+  .dish-desc{color:var(--ink-soft); font-size:1rem; margin-top:3px; line-height:1.45;}
   .dish-tag{
     display:inline-block; margin-top:6px; font-size:0.68rem; font-family:'Lora',serif; font-weight:600;
     color:var(--sage-deep); background:rgba(79,107,79,0.12); padding:2px 9px; border-radius:999px;
@@ -434,24 +434,87 @@
   body.generating-pdf .hero::before{ inset:28px; }
   body.generating-pdf .hero::after{ inset:35px; border-color:rgba(111,18,21,0.2); }
   body.generating-pdf .hero-badge{ width:180px; height:180px; margin-bottom:28px; }
-  body.generating-pdf .hero h1{ font-size:5rem; }
-  body.generating-pdf .hero p{ max-width:520px; }
+  body.generating-pdf .hero h1{ font-size:7.3rem; letter-spacing:0.02em; }
+  body.generating-pdf .hero p{ max-width:580px; font-size:1.48rem; line-height:1.8; }
   body.generating-pdf .how-it-works{
     min-height:1561px;
     box-sizing:border-box;
     padding:46px 90px;
     text-align:center;
   }
-  body.generating-pdf .menu-section{ padding-top:48px; }
-  body.generating-pdf .section-head{ margin-bottom:28px; }
-  body.generating-pdf .section-head h2{ font-size:2.45rem; }
-  body.generating-pdf .dish-grid{ column-gap:40px; padding-bottom:38px; }
-  body.generating-pdf .dish{ padding:13px 0; }
-  body.generating-pdf .dish-name{ font-size:1.06rem; }
-  body.generating-pdf .dish-price{ font-size:1.04rem; }
-  body.generating-pdf .dish-desc{ font-size:0.92rem; }
+  body.generating-pdf .menu-section{ padding-top:30px; }
+  body.generating-pdf .section-head{ margin-bottom:24px; }
+  body.generating-pdf .section-head h2{ font-size:3.1rem; letter-spacing:0.02em; }
+  body.generating-pdf .dish-grid{ grid-template-columns:1fr; column-gap:0; padding-bottom:24px; }
+  body.generating-pdf .dish{ padding:12px 0; }
+  body.generating-pdf .dish-name{ font-size:1.6rem; line-height:1.25; }
+  body.generating-pdf .dish-price{ font-size:1.35rem; }
+  body.generating-pdf .dish-desc{ font-size:1.2rem; line-height:1.45; }
+  body.generating-pdf .dish-prices{ gap:18px; }
+  body.generating-pdf .price-pair{ font-size:1.35rem; }
+  body.generating-pdf .price-pair b{ font-size:0.9rem; }
+  body.generating-pdf .section-note{ font-size:1.5rem; }
+  body.generating-pdf .subhead{ font-size:1.55rem; letter-spacing:0.04em; }
+  body.generating-pdf .choice-item{ font-size:1rem; padding:8px 16px; }
+  body.generating-pdf .mini-item{ padding:9px 0; }
+  body.generating-pdf .mini-name{ font-size:1.3rem; line-height:1.25; }
+  body.generating-pdf .mini-note{ font-size:0.95rem; }
+  body.generating-pdf .mini-price{ font-size:1.25rem; }
+  body.generating-pdf .mini-grid{ grid-template-columns:1fr; column-gap:0; }
+  body.generating-pdf #milanesas{
+    padding:30px 34px 24px;
+  }
+  body.generating-pdf #milanesas .section-head{
+    margin-bottom:18px;
+    padding-bottom:8px;
+    border-bottom:1px solid rgba(43,28,16,0.25);
+  }
+  body.generating-pdf #milanesas .section-head h2{
+    color:var(--wine-deep);
+    font-size:2.3rem;
+    text-transform:uppercase;
+    margin-bottom:0;
+  }
+  body.generating-pdf #milanesas .section-head .divider{ display:none; }
+  body.generating-pdf #milanesas .dish{
+    padding:9px 0;
+    border-bottom:1px solid rgba(43,28,16,0.18);
+  }
+  body.generating-pdf #milanesas .dish-name,
+  body.generating-pdf #milanesas .dish-price,
+  body.generating-pdf #milanesas .price-pair{ color:var(--ink); }
+  body.generating-pdf #milanesas .dish-price,
+  body.generating-pdf #milanesas .price-pair{ color:var(--wine); }
+  body.generating-pdf #milanesas .dish-desc{ color:var(--ink-soft); }
+  body.generating-pdf #milanesas .price-pair b{
+    color:var(--ink-soft);
+    background:rgba(43,28,16,0.08);
+    padding:1px 3px;
+    margin-right:0;
+  }
+  body.generating-pdf #milanesas .price-pair{
+    display:inline-flex;
+    flex-direction:row-reverse;
+    align-items:baseline;
+    gap:3px;
+  }
+  body.generating-pdf #milanesas .dish-prices{
+    display:grid;
+    grid-template-columns:repeat(2, max-content);
+    gap:4px 12px;
+  }
+  body.generating-pdf #milanesas .price-pair{font-size:1.1rem;}
+  body.generating-pdf #milanesas .price-pair b{font-size:0.72rem;}
+  body.generating-pdf #vinos .wine-page{
+    min-height:720px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
   body.generating-pdf .how-it-works-inner{ margin:0 auto; text-align:center; }
-  body.generating-pdf .how-it-works h3{ margin-top:28px; }
+  body.generating-pdf .how-it-works h2{ font-size:2.7rem; }
+  body.generating-pdf .how-it-works h3{ margin-top:28px; font-size:2.2rem; }
+  body.generating-pdf .how-it-works p{ font-size:1.52rem; line-height:1.8; max-width:660px; }
   body.generating-pdf .location-info{ padding:26px; }
   body.generating-pdf .location-wrap{ display:block; }
   body.generating-pdf .how-it-works{
@@ -511,6 +574,39 @@
     text-transform:uppercase; color:var(--ink-soft); background:rgba(43,28,16,0.08);
     border-radius:4px; padding:1px 5px; margin-right:5px; vertical-align:2px;
   }
+  #milanesas .dish-prices{
+    display:grid;
+    grid-template-columns:repeat(2, 76px);
+    gap:3px 16px;
+  }
+  #milanesas .milanesas-price-header{
+    display:grid;
+    grid-template-columns:repeat(2, 76px);
+    gap:16px;
+    grid-column:1;
+    justify-self:end;
+    align-items:center;
+    margin:0;
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.2rem;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    line-height:1.2;
+  }
+  #milanesas .milanesas-price-header span{
+    text-align:center;
+  }
+  #milanesas .milanesas-price-header span:first-child{
+    transform:translateX(-16px);
+  }
+  #milanesas .milanesas-price-header span:nth-child(2){
+    transform:translateX(-8px);
+  }
+  #milanesas .price-pair{text-align:center;}
+  #milanesas .price-pair{font-size:0.95rem;}
+  #milanesas .price-pair b{font-size:0.58rem;}
 
   /* ---------- listas de elección (salsas / guarniciones) ---------- */
   .choice-list{display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 40px;}
@@ -521,23 +617,23 @@
 
   /* ---------- listas compactas (vinos / bebidas) ---------- */
   .mini-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:0 48px; padding-bottom:20px;
+    display:grid; grid-template-columns:1fr; gap:0; padding-bottom:20px;
   }
   .mini-item{
     display:flex; justify-content:space-between; align-items:baseline; gap:10px;
-    padding:11px 0; border-bottom:1px dashed rgba(43,28,16,0.18);
+    padding:7px 0; border-bottom:1px dashed rgba(43,28,16,0.18);
   }
   .mini-name{
     font-family:'Fraunces',serif; font-style:italic; font-weight:600;
-    color:var(--ink); font-size:1rem;
+    color:var(--ink); font-size:1.12rem;
   }
   .mini-note{
     display:block; font-family:'Lora',serif; font-style:normal;
-    font-size:0.74rem; color:var(--ink-soft); margin-top:1px;
+    font-size:0.82rem; color:var(--ink-soft); margin-top:1px;
   }
   .mini-price{
     font-family:'Fraunces',serif; font-weight:700; color:var(--wine);
-    font-size:0.98rem; white-space:nowrap;
+    font-size:1.08rem; white-space:nowrap;
   }
 
   /* ---------- foto de portada de la carta ---------- */
@@ -576,18 +672,18 @@
   }
   .how-it-works h2,
   .how-it-works h3{
-    color:var(--wine-deep); font-size:clamp(1.3rem, 3vw, 1.72rem);
+    color:var(--wine-deep); font-size:clamp(1.55rem, 3.6vw, 2.2rem);
     letter-spacing:.04em; text-transform:uppercase;
   }
-  .how-it-works h2{margin-bottom:14px;}
-  .how-it-works h3{margin:42px 0 14px;}
+  .how-it-works h2{margin-bottom:18px;}
+  .how-it-works h3{margin:42px 0 18px;}
   .how-it-works p{
-    color:var(--ink-soft); font-size:clamp(.9rem, 2vw, 1.02rem); line-height:1.6;
-    margin:0 auto 14px; max-width:520px;
+    color:var(--ink-soft); font-size:clamp(1rem, 2.2vw, 1.2rem); line-height:1.7;
+    margin:0 auto 16px; max-width:620px;
   }
   .how-it-works .intro,
   .how-it-works .closing{color:var(--sage-deep); font-style:italic;}
-  .how-it-works .closing{margin-top:24px;}
+  .how-it-works .closing{margin-top:28px;}
 
   @media (max-width:760px){
     .mini-grid{grid-template-columns:1fr;}
@@ -682,12 +778,12 @@
 <section class="how-it-works" id="como-funciona">
   <div class="how-it-works-inner">
     <h2>Cómo se come en El Lomito</h2>
-    <p class="intro">En el Lomito se viene a comer bien. Abundante y en cantidad. Por eso, según el día, podés elegir cómo disfrutar el bodegón.</p>
+    <p class="intro">En El Lomito se viene a comer bien, con hambre y con ganas. Hay dos formas de disfrutarlo: por peso o en tenedor libre, según el día y la ocasión.</p>
 
     <h3>¿Cómo funciona?</h3>
-    <p>La comida por peso y el tenedor libre son autoservicio: le servís lo que quieras, a tu ritmo.</p>
-    <p>Para bebidas, platos a la carta, postres y la cuenta, solo tenés que pedirle a nuestro equipo de salón.</p>
-    <p class="closing">Comer bien, libremente y sin apuro. Como tiene que ser un bodegón.</p>
+    <p>Elegís la modalidad que te guste y podés armar tu plato a tu ritmo. En la sección de comida por peso, servís lo que más te apetezca; en tenedor libre, disfrutás de una mesa bien servida y abundante.</p>
+    <p>Las bebidas, los platos a la carta, los postres y la cuenta las gestionás con el equipo de salón, mientras vos disfrutás la comida sin apuros.</p>
+    <p class="closing">Comer bien, tranquilo y con hambre. Así se disfruta un bodegón clásico.</p>
   </div>
 </section>
 
@@ -896,19 +992,13 @@
     <div class="dish-grid">
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Lomo</span><span class="dish-leader"></span><span class="dish-price">$ 23.500</span></div>
+          <div class="dish-top"><span class="dish-name">Lomo completo</span><span class="dish-leader"></span><span class="dish-price">$ 23.500</span></div>
           <p class="dish-desc">Lomo con jamón, queso, tomate, lechuga y huevo.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Milanesa</span><span class="dish-leader"></span><span class="dish-price">$ 19.000</span></div>
-          <p class="dish-desc">Milanesa crocante con tomate, queso, jamón y huevo, bañada en cheddar.</p>
-        </div>
-      </div>
-      <div class="dish reveal">
-        <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Barbacoa</span><span class="dish-leader"></span><span class="dish-price">$ 24.000</span></div>
+          <div class="dish-top"><span class="dish-name">Lomo barbacoa</span><span class="dish-leader"></span><span class="dish-price">$ 24.000</span></div>
           <p class="dish-desc">Lomo con cheddar fundido, cebolla crispy, panceta y salsa barbacoa.</p>
         </div>
       </div>
@@ -926,6 +1016,12 @@
       </div>
       <div class="dish reveal">
         <div class="dish-body">
+          <div class="dish-top"><span class="dish-name">Milanesa</span><span class="dish-leader"></span><span class="dish-price">$ 19.000</span></div>
+          <p class="dish-desc">Milanesa crocante con tomate, queso, jamón y huevo, bañada en cheddar.</p>
+        </div>
+      </div>
+      <div class="dish reveal">
+        <div class="dish-body">
           <div class="dish-top"><span class="dish-name">Prensado</span><span class="dish-leader"></span><span class="dish-price">$ 13.000</span></div>
           <p class="dish-desc">Sandwich tostado de jamón y queso en pan de hamburguesa.</p>
         </div>
@@ -935,51 +1031,54 @@
 
   <section class="menu-section container pdf-break" id="milanesas">
     <div class="section-head reveal">
-      <h2>Milanesas para compartir</h2>
+      <h2>Milanesas</h2>
       <svg class="divider" viewBox="0 0 150 22" fill="none"><path d="M2 11c14-14 28 14 42 0s28-14 42 0 28 14 42 0 14-14 20-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="75" cy="4" r="2.4" fill="currentColor"/></svg>
-      <p class="section-note">5 pers · 2/3 pers</p>
+      <p class="section-note">Carne (C) / Pollo (P)</p>
     </div>
     <div class="dish-grid">
+      <div class="milanesas-price-header"><span>5/6 P</span><span>2/3 P</span></div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Americana</span><span class="dish-leader"></span></div>
-          <p class="dish-desc">Milanesa dorada y crocante, cubierta con muzza fundida, papas fritas, jamón crudo y huevo frito. Elegí pollo: <b>5p $60.000 · 2/3p $36.000</b> o carne: <b>5p $64.000 · 2/3p $39.000</b>.</p>
+          <div class="dish-top"><span class="dish-name">Milanesa americana</span><span class="dish-leader"></span><span class="dish-prices"><span class="price-pair"><b>P</b>$60.000</span><span class="price-pair"><b>C</b>$64.000</span><span class="price-pair"><b>P</b>$36.000</span><span class="price-pair"><b>C</b>$39.000</span></span></div>
+          <p class="dish-desc">Milanesa dorada y crocante, cubierta con muzza fundida, papas fritas, jamón crudo y huevo frito.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">De campo</span><span class="dish-leader"></span></div>
-          <p class="dish-desc">Milanesa con rúcula fresca, jamón crudo, muzza y reggianito. Elegí pollo: <b>5p $61.000 · 2/3p $35.000</b> o carne: <b>5p $65.000 · 2/3p $37.000</b>.</p>
+          <div class="dish-top"><span class="dish-name">Milanesa de campo</span><span class="dish-leader"></span><span class="dish-prices"><span class="price-pair"><b>P</b>$61.000</span><span class="price-pair"><b>C</b>$65.000</span><span class="price-pair"><b>P</b>$35.000</span><span class="price-pair"><b>C</b>$37.000</span></span></div>
+          <p class="dish-desc">Milanesa con rúcula fresca, jamón crudo, muzza y reggianito.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
           <div class="dish-top">
-            <span class="dish-name">Mila de la casa</span><span class="dish-leader"></span>
+            <span class="dish-name">Milanesa de la casa</span><span class="dish-leader"></span>
             <span class="dish-prices">
-              <span class="price-pair"><b>5p</b>$59.000</span>
-              <span class="price-pair"><b>2/3p</b>$33.000</span>
+              <span class="price-pair"><b>P</b>$59.000</span>
+              <span class="price-pair"><b>C</b>$65.000</span>
+              <span class="price-pair"><b>P</b>$33.000</span>
+              <span class="price-pair"><b>C</b>$37.000</span>
             </span>
           </div>
-          <p class="dish-desc">Jamón, cheddar y montaña de papas. Elegí pollo o carne.</p>
+          <p class="dish-desc">Jamón, cheddar y montaña de papas.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Extrem</span><span class="dish-leader"></span></div>
-          <p class="dish-desc">Milanesa crocante con panceta dorada, cheddar fundido y barbacoa. Elegí pollo: <b>5p $60.000 · 2/3p $35.000</b> o carne: <b>5p $65.000 · 2/3p $37.000</b>.</p>
+          <div class="dish-top"><span class="dish-name">Milanesa extrema</span><span class="dish-leader"></span><span class="dish-prices"><span class="price-pair"><b>P</b>$60.000</span><span class="price-pair"><b>C</b>$65.000</span><span class="price-pair"><b>P</b>$35.000</span><span class="price-pair"><b>C</b>$37.000</span></span></div>
+          <p class="dish-desc">Milanesa crocante con panceta dorada, cheddar fundido y barbacoa.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Full cheese</span><span class="dish-leader"></span></div>
-          <p class="dish-desc">Milanesa crocante con tybo, roquefort, muzza y cheddar, sobre base de cebolla salteada. Elegí pollo: <b>5p $61.000 · 2/3p $34.000</b> o carne: <b>5p $65.000 · 2/3p $36.000</b>.</p>
+          <div class="dish-top"><span class="dish-name">Milanesa full cheese</span><span class="dish-leader"></span><span class="dish-prices"><span class="price-pair"><b>P</b>$61.000</span><span class="price-pair"><b>C</b>$65.000</span><span class="price-pair"><b>P</b>$34.000</span><span class="price-pair"><b>C</b>$36.000</span></span></div>
+          <p class="dish-desc">Milanesa crocante con tybo, roquefort, muzza y cheddar, sobre base de cebolla salteada.</p>
         </div>
       </div>
       <div class="dish reveal">
         <div class="dish-body">
-          <div class="dish-top"><span class="dish-name">Napolitana</span><span class="dish-leader"></span></div>
-          <p class="dish-desc">Milanesa dorada con salsa de tomate, jamón, muzza y papas fritas. Elegí pollo: <b>5p $61.000 · 2/3p $36.000</b> o carne: <b>5p $66.000 · 2/3p $37.000</b>.</p>
+          <div class="dish-top"><span class="dish-name">Milanesa napolitana</span><span class="dish-leader"></span><span class="dish-prices"><span class="price-pair"><b>P</b>$61.000</span><span class="price-pair"><b>C</b>$66.000</span><span class="price-pair"><b>P</b>$36.000</span><span class="price-pair"><b>C</b>$37.000</span></span></div>
+          <p class="dish-desc">Milanesa dorada con salsa de tomate, jamón, muzza y papas fritas.</p>
         </div>
       </div>
     </div>
@@ -1104,10 +1203,11 @@
   </section>
 
   <section class="menu-section container pdf-break" id="vinos">
-    <div class="section-head reveal">
-      <h2>Vinos</h2>
-      <svg class="divider" viewBox="0 0 150 22" fill="none"><path d="M2 11c14-14 28 14 42 0s28-14 42 0 28 14 42 0 14-14 20-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="75" cy="4" r="2.4" fill="currentColor"/></svg>
-    </div>
+    <div class="wine-page">
+      <div class="section-head reveal">
+        <h2>Vinos</h2>
+        <svg class="divider" viewBox="0 0 150 22" fill="none"><path d="M2 11c14-14 28 14 42 0s28-14 42 0 28 14 42 0 14-14 20-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="75" cy="4" r="2.4" fill="currentColor"/></svg>
+      </div>
     <h3 class="subhead reveal">Malbec</h3>
     <div class="mini-grid">
       <div class="mini-item">
@@ -1214,6 +1314,8 @@
         <span class="mini-price">$ 14.500</span>
       </div>
     </div>
+    </div>
+    <div class="wine-page">
     <h3 class="subhead reveal">Vinos blancos</h3>
     <div class="mini-grid">
       <div class="mini-item">
@@ -1302,6 +1404,7 @@
         <span class="mini-name">Lopez<span class="mini-note">Blanco</span></span>
         <span class="mini-price">$ 4.300</span>
       </div>
+    </div>
     </div>
   </section>
 
@@ -1632,103 +1735,48 @@
       const MARGIN_X = 6, MARGIN_TOP = 6, MARGIN_BOTTOM = 10;
 
       const FIXED_WIDTH = 1100;
-      const bodyHeightCss = document.body.scrollHeight;
-      const bodyWidthCss = FIXED_WIDTH;
-      const toDocumentY = (el) => el.getBoundingClientRect().top;
-      const comoFunciona = document.querySelector('#como-funciona');
-      const entradas = document.querySelector('#entradas');
-      const hardBreaks = [
-        toDocumentY(comoFunciona),
-        toDocumentY(entradas)
-      ].sort((a, b) => a - b);
-
-      // bloques que nunca deben cortarse al medio (un plato, una fila, etc.)
-      const avoidRanges = Array.from(document.querySelectorAll('.dish, .mini-item, .choice-list'))
-        .map(el => {
-          const r = el.getBoundingClientRect();
-          return [r.top, r.bottom];
-        })
-        .sort((a, b) => a[0] - b[0]);
-
-      // un título siempre viaja con el primer contenido de su sección
-      document.querySelectorAll('main .menu-section').forEach(section => {
-        const heading = section.querySelector('.section-head');
-        const firstContent = section.querySelector('.dish, .mini-item, .choice-list');
-        if (!heading || !firstContent) return;
-        const headingBox = heading.getBoundingClientRect();
-        const contentBox = firstContent.getBoundingClientRect();
-        avoidRanges.push([
-          headingBox.top,
-          contentBox.bottom
-        ]);
-      });
-      avoidRanges.sort((a, b) => a[0] - b[0]);
-
-      function ajustarCorte(y){
-        for (const [top, bottom] of avoidRanges){
-          if (y > top + 1 && y < bottom - 1) return top;
-        }
-        return y;
-      }
-
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
       const pageWmm = pdf.internal.pageSize.getWidth();
       const pageHmm = pdf.internal.pageSize.getHeight();
       const usableWmm = pageWmm - MARGIN_X * 2;
       const usableHmm = pageHmm - MARGIN_TOP - MARGIN_BOTTOM;
-      const cssPerMm = bodyWidthCss / usableWmm;
-      const pageHeightCss = usableHmm * cssPerMm;
+      const pdfBlocks = [
+        document.querySelector('.hero'),
+        document.querySelector('#como-funciona'),
+        ...Array.from(document.querySelectorAll('main > .menu-section')).flatMap(section => {
+          if (section.id === 'ubicacion') return [];
+          if (section.id === 'vinos') return Array.from(section.querySelectorAll(':scope > .wine-page'));
+          return [section];
+        })
+      ].filter(Boolean).filter((block, index, blocks) => blocks.indexOf(block) === index);
 
-      let y = 0;
       let first = true;
-      const totalH = bodyHeightCss;
-      const captureScale = 1;
-
-      while (y < totalH - 1){
-        let end = Math.min(y + pageHeightCss, totalH);
-
-        const hardBreak = hardBreaks.find(breakPoint => breakPoint > y + 1 && breakPoint < end);
-        end = hardBreak || ajustarCorte(end);
-        if (end <= y) end = Math.min(y + pageHeightCss, totalH);
-
-        const pageCanvas = await html2canvas(document.body, {
-          scale: captureScale,
+      for (const block of pdfBlocks){
+        const blockCanvas = await html2canvas(block, {
+          scale: 1,
           useCORS: true,
           backgroundColor: '#f7e7ae',
           windowWidth: FIXED_WIDTH,
-          windowHeight: end - y,
-          width: FIXED_WIDTH,
-          height: end - y,
-          x: 0,
-          y,
           scrollY: 0,
           ignoreElements: (element) => element.closest('.navbar') !== null
         });
 
-        // No agregamos páginas que solo contienen el fondo de la carta.
-        // Pueden aparecer cuando un corte cae justo entre dos secciones.
-        const pixels = pageCanvas.getContext('2d').getImageData(0, 0, pageCanvas.width, pageCanvas.height).data;
-        let hasContent = false;
-        for (let index = 0; index < pixels.length; index += 64) {
-          const colorDifference = Math.abs(pixels[index] - 247)
-            + Math.abs(pixels[index + 1] - 231)
-            + Math.abs(pixels[index + 2] - 174);
-          if (colorDifference > 18) {
-            hasContent = true;
-            break;
-          }
+        const imageRatio = blockCanvas.width / blockCanvas.height;
+        let imageWmm = usableWmm;
+        let imageHmm = imageWmm / imageRatio;
+        if (imageHmm > usableHmm){
+          imageHmm = usableHmm;
+          imageWmm = imageHmm * imageRatio;
         }
+        const imageX = (pageWmm - imageWmm) / 2;
+        const imageY = (pageHmm - imageHmm) / 2;
 
-        if (hasContent) {
-          if (!first) pdf.addPage();
-          first = false;
-          pdf.setFillColor(247, 231, 174);
-          pdf.rect(0, 0, pageWmm, pageHmm, 'F');
-          pdf.addImage(pageCanvas.toDataURL('image/png'), 'PNG', MARGIN_X, MARGIN_TOP, usableWmm, (end - y) / cssPerMm);
-        }
-
-        y = end;
+        if (!first) pdf.addPage();
+        first = false;
+        pdf.setFillColor(247, 231, 174);
+        pdf.rect(0, 0, pageWmm, pageHmm, 'F');
+        pdf.addImage(blockCanvas.toDataURL('image/png'), 'PNG', imageX, imageY, imageWmm, imageHmm);
       }
 
       pdf.save('Carta-El-Lomito.pdf');
